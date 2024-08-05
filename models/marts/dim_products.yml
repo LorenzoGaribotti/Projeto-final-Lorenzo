@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: Products dimension table with IDS to use for connections and product information.
+    columns: 
+      - name: product_sk
+        description: Surrogate key for dim_products, used to connect with fct_salesdetails.
+        tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: Primary key for dim_products, used to connect with fct_salesdetails.
+        tests:
+          - unique
+          - not_null
+      - name: productsubcategory_id
+        description: ID for each product subcategory.	
+      - name: productcategory_id
+        description: ID for each product category.
+      - name: subcategoryname
+        description: Name for each product subcategory.
+      - name: categoryname
+        description: Name for each product category.
+      - name: productname
+        description: Name of each product.
+      - name: productcolor
+        description: Color of each product.

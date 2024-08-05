@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_location
+    description: Table with location information.
+    columns:
+      - name: location_sk
+        description: Surrogate key for dim_location, used to connect with fct_salesdetails shiptoaddress_id.
+        tests:
+          - unique
+          - not_null
+      - name: address_id
+        description: Primary key for dim_products, used to connect with fct_salesdetails shiptoaddress_id.
+        tests:
+          - unique
+          - not_null
+      - name: businessentity_id
+        description: ID for each businessentity, used to connect with customer.
+      - name: country_code
+        description: Code for each country.
+      - name: stateprovince_id
+        description: ID for each state province.
+      - name: state_code
+        description: Code for each state.
+      - name: statename
+        description: Name of each state.
+      - name: city
+        description: Name of each city.
+      - name: country_name
+        description: Name of each country.
