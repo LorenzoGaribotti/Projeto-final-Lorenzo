@@ -1,0 +1,98 @@
+version: 2
+
+models:
+  - name: dim_datas
+    description: "Dimensão de datas com datas a partir de 01/01/2023."
+    columns:
+      - name: 'data_metrica'
+        description: "Coluna com as datas."
+        tests:
+          - not_null
+          - unique
+
+      - name: semana_referencia
+        description: "A semana de referência truncada para a semana."
+
+      - name: mes_referencia
+        description: "O mês de referência truncado para o mês."
+
+      - name: epoch
+        description: "A representação da data em segundos desde a época (1970-01-01 00:00:00 UTC)."
+
+      - name: sufixo_dia
+        description: "O sufixo do dia formatado como 'dia'."
+
+      - name: nome_dia
+        description: "O nome completo do dia da semana."
+
+      - name: dia_da_semana
+        description: "O número do dia da semana (1 a 7)."
+
+      - name: dia_do_mes
+        description: "O número do dia do mês."
+
+      - name: dia_do_trimestre
+        description: "O número do dia no trimestre."
+
+      - name: dia_do_ano
+        description: "O número do dia no ano."
+
+      - name: semana_do_mes
+        description: "O número da semana no mês."
+
+      - name: semana_do_ano
+        description: "O número da semana no ano."
+
+      - name: semana_do_ano_iso
+        description: "A semana do ano no formato ISO."
+
+      - name: mes_real
+        description: "O número do mês (1 a 12)."
+
+      - name: nome_mes
+        description: "O nome completo do mês."
+
+      - name: nome_abreviado_mes
+        description: "O nome abreviado do mês."
+
+      - name: trimestre_real
+        description: "O número do trimestre (1 a 4)."
+
+      - name: nome_trimestre
+        description: "O nome do trimestre ('primeiro', 'segundo', 'terceiro', 'quarto')."
+
+      - name: ano_real
+        description: "O ano real."
+
+      - name: primeiro_dia_da_semana
+        description: "A data do primeiro dia da semana (segunda-feira)."
+
+      - name: ultimo_dia_da_semana
+        description: "A data do último dia da semana (domingo)."
+
+      - name: primeiro_dia_do_mes
+        description: "A data do primeiro dia do mês."
+
+      - name: ultimo_dia_do_mes
+        description: "A data do último dia do mês."
+
+      - name: primeiro_dia_do_trimestre
+        description: "A data do primeiro dia do trimestre."
+
+      - name: ultimo_dia_do_trimestre
+        description: "A data do último dia do trimestre."
+
+      - name: primeiro_dia_do_ano
+        description: "A data do primeiro dia do ano."
+
+      - name: ultimo_dia_do_ano
+        description: "A data do último dia do ano."
+
+      - name: mes_ano
+        description: "Representação do mês e ano no formato MMYYYY."
+
+      - name: mes_dia_ano
+        description: "Representação do dia, mês e ano no formato MMDDYYYY."
+
+      - name: flag_final_de_semana
+        description: "Indica se o dia é um final de semana (verdadeiro ou falso)."
