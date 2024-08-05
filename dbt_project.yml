@@ -33,6 +33,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
+  adventureworks_dw:
     staging:
       +materialized: view
       +schema: stg
