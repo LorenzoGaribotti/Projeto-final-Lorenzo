@@ -45,4 +45,5 @@ models:
 
 
 seeds:
-  +schema: source
+  adventureworks_dw:
+    +schema: source
