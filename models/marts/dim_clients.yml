@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: dim_clients
+    description: Clients dimension table with information about client's credit card and name.
+    columns: 
+      - name: customer_sk
+        description: Surrogate key for dim_clients used to link with fct_salesdetails.
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Primary key for dim_clients used to link with fct_salesdetails.
+        tests:
+          - unique
+          - not_null
+      - name: person_id
+        description: ID column used to make a connection between clients and creditcards.
+      - name: creditcard_id
+        description: ID for each creditcard, used to make a connection for each client to the respective credit card and to connect with fct_salesdetails.
+      - name: full_name
+        description: Client full name.
+      - name: cardtype
+        description: Type of each credit card.
