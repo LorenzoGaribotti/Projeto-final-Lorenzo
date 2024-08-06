@@ -13,7 +13,7 @@ with
                 'salesorderheadersalesreason.order_id'
                 , 'salesorderheadersalesreason.reason_id'
             ]) }} as salesreason_sk
-            ,salesorderheadersalesreason.order_id
+            , salesorderheadersalesreason.order_id
             , salesorderheadersalesreason.reason_id
             , salesreason.reason
             , salesreason.reason_type
