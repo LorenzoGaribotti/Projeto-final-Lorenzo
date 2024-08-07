@@ -14,7 +14,7 @@ with
     , countryregion as (
         select *
         from {{ ref('stg_sap__countryregion') }}
-    ) 
+    )
     , dim_location as (
         select
             {{ numeric_surrogate_key([
@@ -25,9 +25,9 @@ with
             , countryregion.country_code
             , stateprovince.stateprovince_id
             , stateprovince.state_code
+            , countryregion.country_name
             , stateprovince.statename
             , address.city
-            , countryregion.country_name
         from address
         left join businessentityaddress on address.address_id = businessentityaddress.address_id
         left join stateprovince on address.stateprovince_id = stateprovince.stateprovince_id

@@ -6,6 +6,7 @@ with
             , cast(territoryid as int) as territory_id
             , cast(creditcardid as int) as creditcard_id
             , cast(shiptoaddressid as int) as shiptoaddress_id
+            , cast(salespersonid as int) as salesperson_id
             , date(orderdate) as order_date
             , date(duedate) as due_date
             , date(shipdate) as ship_date

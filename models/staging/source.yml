@@ -106,3 +106,17 @@ sources:
             tests:
               - unique
               - not_null
+      - name: salesperson
+        description: Table with information about salesperson sales statistics.
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null
+      - name: salesterritory
+        description: Table with information about territory sales statistics.
+        columns:
+          - name: territoryid
+            tests:
+              - unique
+              - not_null
