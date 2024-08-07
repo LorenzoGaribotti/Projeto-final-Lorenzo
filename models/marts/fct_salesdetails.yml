@@ -26,6 +26,8 @@ models:
         description: ID for each address the order have to be shipped.
       - name: stateprovince_id
         description: ID for each stateprovince.
+      - name: salesperson_id
+        description: ID for each salesperson.
       - name: country_code
         description: Code for each country.
       - name: status
