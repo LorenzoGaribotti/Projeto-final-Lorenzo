@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: agg_salesterritory
+    description: Aggregate table with information about every salesperson.
+    columns: 
+      - name: city
+        description: Primary key and ID for each person.
+      - name: full_name
+        description: Full name of each person.
+      - name: salesquota
+        description: Numeric value of each salesperson sales quota.
+      - name: bonus
+        description: Numeric value of each salesperson bonus.
+      - name: commissionpct
+        description: Percentage value of the commission of each salesperson.
+      - name: salesytd
+        description: Numeric valaue of each salesperson total sales this year.
+      - name: saleslastyear
+        description: Numeric valaue of each salesperson total sales last year.

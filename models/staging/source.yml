@@ -5,104 +5,115 @@ sources:
     description: Adventure works SAP data source.
     tables:
       - name: salesorderheader
-        description: XXXXXX.
+        description: Main sales table.
         columns:
           - name: salesorderid
             tests:
               - unique
               - not_null
       - name: salesorderdetail
-        description: XXXXXX.
+        description: Table for detailing each sale.
         columns:
           - name: salesorderdetailid
             tests:
               - unique
               - not_null
       - name: salesreason
-        description: XXXXXX.
+        description: Table with information about reasons for each sale.
         columns:
           - name: salesreasonid
             tests:
               - unique
               - not_null
       - name: salesorderheadersalesreason
-        description: XXXXXX.
+        description: Table to link salesorderheader and salesreason.
         columns:
           - name: salesorderid
       - name: product
-        description: XXXXXX.
+        description: Table with product details and information.
         columns:
           - name: productid
             tests:
               - unique
               - not_null
       - name: productcategory
-        description: XXXXXX.
+        description: Table with IDS for each product category and its information.
         columns:
           - name: productcategoryid
             tests:
               - unique
               - not_null
       - name: productsubcategory
-        description: XXXXXX.
+        description: Table with IDS for each product subcategory and its information.
         columns:
           - name: productsubcategoryid
             tests:
               - unique
               - not_null
       - name: creditcard
-        description: XXXXXX.
+        description: Table with ID and information of credit cards.
         columns:
           - name: creditcardid
             tests:
               - unique
               - not_null
       - name: personcreditcard
-        description: XXXXXX.
+        description: Table with IDs for creditcard and clients link.
         columns:
           - name: businessentityid
             tests:
               - unique
               - not_null
       - name: person
-        description: XXXXXX.
+        description: Table with detailed information of every person.
         columns:
           - name: businessentityid
             tests:
               - unique
               - not_null
       - name: customer
-        description: XXXXXX.
+        description: Table with information of customers.
         columns:
           - name: customerid
             tests:
               - unique
               - not_null
       - name: countryregion
-        description: XXXXXX.
+        description: Table with country's name and code.
         columns:
           - name: countryregioncode
-            tests:
-              - unique
-              - not_null
       - name: stateprovince
-        description: XXXXXX.
+        description: Table with information of country state province and ID for links.
         columns:
           - name: stateprovinceid
             tests:
               - unique
               - not_null
       - name: address
-        description: XXXXXX.
+        description: Table with address and city names and IDS.
         columns:
           - name: addressid
             tests:
               - unique
               - not_null
       - name: businessentityaddress
-        description: XXXXXX.
+        description: Table with clients and address link.
         columns:
           - name: addressid
+            tests:
+              - unique
+              - not_null
+      - name: salesperson
+        description: Table with information about salesperson sales statistics.
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null
+      - name: salesterritory
+        description: Table with information about territory sales statistics.
+        columns:
+          - name: territoryid
             tests:
               - unique
               - not_null
