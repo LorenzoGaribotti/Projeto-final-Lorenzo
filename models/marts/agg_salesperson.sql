@@ -34,11 +34,11 @@ with
             , salesperson.commissionpct
             , salesperson.salesytd
             , salesperson.saleslastyear
+            , sales_2014.total_sales_2014
             , fct_sales.orders_ctg
             , fct_sales.avg_ticket
             , fct_sales.first_sale
             , fct_sales.last_sale
-            , sales_2014.total_sales_2014
         from salesperson
         left join person on salesperson.person_id = person.businessentity_id
         left join fct_sales on salesperson.person_id = fct_sales.salesperson_id

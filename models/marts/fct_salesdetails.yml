@@ -5,7 +5,7 @@ models:
     description: Fact sales with details.
     columns:
       - name: orderdetail_sk
-        description: Primary key for fct_salesdetails, with ID for each order detailed.
+        description: Surrogate key for fct_salesdetails, with ID for each order detailed.
         tests:
           - unique
           - not_null

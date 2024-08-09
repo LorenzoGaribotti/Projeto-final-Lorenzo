@@ -19,7 +19,7 @@ sources:
               - unique
               - not_null
       - name: salesreason
-        description: XXXXXX.
+        description: Table with information about reasons for each sale.
         columns:
           - name: salesreasonid
             tests:
