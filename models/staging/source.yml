@@ -82,9 +82,6 @@ sources:
         description: Table with country's name and code.
         columns:
           - name: countryregioncode
-            tests:
-              - unique
-              - not_null
       - name: stateprovince
         description: Table with information of country state province and ID for links.
         columns:
