@@ -35,6 +35,7 @@ with
             , fct_metrics.last_order
         from dim_location
         left join fct_metrics on dim_location.city = fct_metrics.city
+        where orders_qt >= 1
         group by
             dim_location.city
             , dim_location.statename

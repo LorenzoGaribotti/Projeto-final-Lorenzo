@@ -20,5 +20,7 @@ models:
         description: ID for each creditcard, used to make a connection for each client to the respective credit card and to connect with fct_salesdetails.
       - name: full_name
         description: Client full name.
+      - name: store_name
+        description: Client's store name.      
       - name: cardtype
         description: Type of each credit card.

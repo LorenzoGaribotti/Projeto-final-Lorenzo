@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: dim_dates
-    description: "Date dimension with dates starting from 01/01/2023."
+    description: "Date dimension with dates starting from 01/01/2011."
     columns:
       - name: 'date_metric'
         description: "Column with the dates."
