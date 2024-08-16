@@ -17,7 +17,17 @@ models:
         description: Numeric value of each salesperson bonus.
       - name: commissionpct
         description: Percentage value of the commission of each salesperson.
-      - name: salesytd
-        description: Numeric valaue of each salesperson total sales this year.
-      - name: saleslastyear
-        description: Numeric valaue of each salesperson total sales last year.
+      - name: total_sales_2013
+        description: Numeric valaue of each salesperson total sales in 2013.
+      - name: total_sales_2014
+        description: Numeric valaue of each salesperson total sales in 2014.
+      - name: total_sales
+        description: Numeric valaue of each salesperson total sales.
+      - name: orders_qty
+        description: Total orders for each salesperson.
+      - name: avg_ticket
+        description: Average ticket of each salesperson.
+      - name: first_sale
+        description: Date of the first order the salesperson was responsible of.
+      - name: last_sale
+        description: Date of the last order the salesperson was responsible of.

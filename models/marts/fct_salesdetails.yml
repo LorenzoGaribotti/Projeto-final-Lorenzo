@@ -41,4 +41,6 @@ models:
       - name: unitprice_discount
         description: Discount of each product per unit.
       - name: total
-        description: Total of the order (unit_price * order_qty).
+        description: Total of the order.
+      - name: total_sales
+        description: Total of the order for each product (unit_price * order_qty).

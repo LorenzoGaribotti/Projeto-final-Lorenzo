@@ -1,61 +1,49 @@
 with
-    dim_location as (
+    salesterritory as (
         select *
-        from {{ ref('dim_location') }}
+        from {{ ref('stg_sap__salesterritory') }}
     )
     , fct_sales as (
         select
-            fct_salesdetails.*
-            , dim_location.city
-            , dim_location.statename
-            , dim_location.country_name
-        from {{ ref('fct_salesdetails') }} as fct_salesdetails
-        left join dim_location on fct_salesdetails.shiptoaddress_id = dim_location.address_id
-    )
-    , fct_metrics as (
-        select
-            city
-            , count(distinct order_id) as orders_qt
+            territory_id
+            , count(distinct order_id) as orders_qty
+            , sum(total) as total_sales
             , avg(total_sales) as avg_ticket
-            , sum(total_sales) as total_sales
             , min(order_date) as first_order
             , max(order_date) as last_order
-        from fct_sales
-        group by city
+        from {{ ref('fct_salesdetails') }}
+        group by territory_id
+    )
+    , sales_2013 as (
+        select
+            territory_id
+            , sum(total_sales) as total_sales_2013
+        from {{ ref('fct_salesdetails') }}
+        where extract(year from order_date) = 2013
+        group by territory_id
+    )
+    , sales_2014 as (
+        select
+            territory_id
+            , sum(total_sales) as total_sales_2014
+        from {{ ref('fct_salesdetails') }}
+        where extract(year from order_date) = 2014
+        group by territory_id
     )
     , agg_salesterritory as (
         select
-            dim_location.city
-            , dim_location.statename
-            , dim_location.country_name
-            , fct_metrics.total_sales
-            , fct_metrics.orders_qt
-            , fct_metrics.avg_ticket
-            , fct_metrics.first_order
-            , fct_metrics.last_order
-        from dim_location
-        left join fct_metrics on dim_location.city = fct_metrics.city
-        where orders_qt >= 1
-        group by
-            dim_location.city
-            , dim_location.statename
-            , dim_location.country_name
-            , fct_metrics.total_sales
-            , fct_metrics.orders_qt
-            , fct_metrics.avg_ticket
-            , fct_metrics.first_order
-            , fct_metrics.last_order
-    )
-    , dedup as (
-        select
-            *
-            , row_number() over (
-                partition by
-                    city
-                order by country_name desc
-            ) as dedup_table    
-        from agg_salesterritory   
+            salesterritory.region as territory
+            , sales_2013.total_sales_2013
+            , sales_2014.total_sales_2014
+            , fct_sales.total_sales
+            , fct_sales.orders_qty
+            , fct_sales.avg_ticket
+            , fct_sales.first_order
+            , fct_sales.last_order
+        from salesterritory
+        left join fct_sales on salesterritory.territory_id = fct_sales.territory_id
+        left join sales_2014 on salesterritory.territory_id = sales_2014.territory_id
+        left join sales_2013 on salesterritory.territory_id = sales_2013.territory_id    
     )
 select *
-from dedup
-where dedup_table = 1
+from agg_salesterritory

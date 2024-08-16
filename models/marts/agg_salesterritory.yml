@@ -2,19 +2,24 @@ version: 2
 
 models:
   - name: agg_salesterritory
-    description: Aggregate table with information about every salesperson.
+    description: Aggregate table with information about every territory.
     columns: 
-      - name: city
-        description: Primary key and ID for each person.
-      - name: full_name
-        description: Full name of each person.
-      - name: salesquota
-        description: Numeric value of each salesperson sales quota.
-      - name: bonus
-        description: Numeric value of each salesperson bonus.
-      - name: commissionpct
-        description: Percentage value of the commission of each salesperson.
-      - name: salesytd
-        description: Numeric valaue of each salesperson total sales this year.
-      - name: saleslastyear
-        description: Numeric valaue of each salesperson total sales last year.
+      - name: territory
+        description: Territory name.
+        tests:
+          - unique
+          - not_null
+      - name: total_sales_2013
+        description: Numeric valaue of each territory total sales in 2013.
+      - name: total_sales_2014
+        description: Numeric valaue of each territory total sales in 2014.
+      - name: total_sales
+        description: Numeric valaue of each territory total sales.
+      - name: orders_qty
+        description: Total orders for each territory.
+      - name: avg_ticket
+        description: Average ticket of each territory.
+      - name: first_sale
+        description: Date of the first order for each territory.
+      - name: last_sale
+        description: Date of the last order for each territory.
