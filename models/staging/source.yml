@@ -117,3 +117,10 @@ sources:
             tests:
               - unique
               - not_null
+      - name: store
+        description: Table with information about all the stores.
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null              

@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: agg_salesds
+    description: Aggregate table for Data Science models.
+    columns:
+      - name: orderdetail_id
+        description: Primary key for agg_salesds, with ID for each order detailed.
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: ID for each order.
+      - name: product_name
+        description: Name of each product.
+      - name: customer_id
+        description: ID for each customer.
+      - name: region
+        description: Region of each order.
+      - name: store_name
+        description: Name of the store that made the order if it was a store.
+      - name: order_date
+        description: Date of the orders.
+      - name: order_qty
+        description: Quantity of products for each order_detail.
+      - name: unit_price
+        description: Price of unit for each product.
+      - name: unitprice_discount
+        description: Discount of each product per unit.
+      - name: total
+        description: Total of the order.
+      - name: total_details
+        description: Total of the order for each product (unit_price * order_qty).

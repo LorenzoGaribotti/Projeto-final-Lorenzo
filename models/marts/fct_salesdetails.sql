@@ -23,6 +23,7 @@ with
             , stg_salesorderheader.customer_id
             , stg_salesorderheader.shiptoaddress_id
             , stg_salesorderheader.salesperson_id
+            , stg_salesorderheader.territory_id
             , dim_location.stateprovince_id
             , dim_location.country_code
             , stg_salesorderheader.status
