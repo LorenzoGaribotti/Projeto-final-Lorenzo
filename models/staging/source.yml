@@ -120,7 +120,7 @@ sources:
       - name: store
         description: Table with information about all the stores.
         columns:
-          - name: customerid
+          - name: businessentityid
             tests:
               - unique
               - not_null              
