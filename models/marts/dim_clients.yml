@@ -18,9 +18,11 @@ models:
         description: ID column used to make a connection between clients and creditcards.
       - name: creditcard_id
         description: ID for each creditcard, used to make a connection for each client to the respective credit card and to connect with fct_salesdetails.
-      - name: full_name
-        description: Client full name.
+      - name: store_id
+        description: ID for each store.
       - name: store_name
-        description: Client's store name.      
+        description: Name of each store.
+      - name: full_name
+        description: Client full name.  
       - name: cardtype
         description: Type of each credit card.

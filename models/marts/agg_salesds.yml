@@ -13,6 +13,8 @@ models:
         description: ID for each order.
       - name: product_name
         description: Name of each product.
+      - name: productsubcategoryname
+        description: Name of subcategory of each product.
       - name: customer_id
         description: ID for each customer.
       - name: region

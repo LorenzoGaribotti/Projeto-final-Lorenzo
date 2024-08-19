@@ -22,9 +22,10 @@ models:
         description: ID for each state province.
       - name: state_code
         description: Code for each state.
+      - name: country_name
+        description: Name of each country.
       - name: statename
         description: Name of each state.
       - name: city
         description: Name of each city.
-      - name: country_name
-        description: Name of each country.
+
