@@ -1,25 +1,58 @@
-# Indicium Academy
+# Final Project: Lighthouse Adventure Works
 
-Repositório para ser utilizado no desafio para a obtenção da certificação de Analytics Engineer by Indicium. Faça o fork deste repositório e o utilize durante o desafio para fazer a insgestão das tabelas do SAP do Adventure Works.
+## Project Description
+The project consists of executing the modern data stack pipeline for the fictitious company Adventure Works, including the configuration of the data warehouse, data transformation, and creation of dashboards using BI tools.
 
-## Instruções
+## Requirements
+- List of technologies and tools used:
+  - dbt Cloud
+  - BigQuery
+  - Power BI
+  - Git/GitHub
 
-Todas as tabelas do banco fonte do SAP da Adventure Works serão carregadas como seeds pelo dbt. Os arquivos .csv com os dados já estão na pasta de seeds.
+## Project Setup
+- Step-by-step instructions to clone the repository:
+  ```bash
+  git clone https://github.com/LorenzoGaribotti/projeto-final-lorenzo
+  ```
+- Configuring BigQuery with dbt Cloud:
+    - Create a service account with a JSON key in BigQuery.
+    - Connect dbt Cloud with this JSON key.
+    - Connect the repository to dbt Cloud.
 
-Para fazer o carregamento de todas as tabelas usem o comando:
-- `dbt seed`
+- Details 
+    - The project's seeds were deleted from the repository after running dbt seed to reduce the time required for dbt run. (The seeds can be obtained from this repository: https://github.com/techindicium/academy-dbt).
+## Project Execution
+- Important commands:
 
-Para carregar uma tabela especifíca utilizem o comando
-- `dbt seed -s nome_do_csv`
+  - `dbt seed` imports the raw tables into the data warehouse.
+    ```bash
+    dbt seed
+    ```
 
-### Problemas comuns
+  - `dbt run` executes all the project's scripts, respecting dependencies.
+    ```bash
+    dbt run
+    ```
 
-Em caso a linha de comando do dbt fique com o status de estar sempre carregando, ou, o job do comando `dbt seed` fique rodando indefinitivamente mesmo após as 64 tabelas forem carregadas você precisará reiniciar o terminal. Para isso, clique nos três pontos no canto inferior direito ou no lado direito da linha de comando e escolha a opção `Restart IDE`.
+  - `dbt test` runs all the tests defined in the .yml files and the 'tests' folder.
+    ```bash
+    dbt test
+    ```
 
+  - `dbt build` runs all scripts and tests for the project.
+    ```bash
+    dbt build
+    ```
 
-## Recursos:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](http://community.getbdt.com/) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- Description of the layers creation:
+  - **stg**: In the staging layer, the raw tables were processed by adjusting data types, column positions, and names.
+  - **dim**: The dimensions were built to describe the data in the fact table, considering the star schema to enable healthy connections in Power BI.
+  - **fact**: The fact table provides the data and answers to our questions. It also includes the necessary IDs for future connections.
+  - **aggs**: Aggregated tables were built with both processing efficiency and better analysis for Data Science in mind.
+
+## Visualizations and Dashboards
+- Dashboards were created to answer the project's key questions. The dashboards were sent in .pbix format to the designated email.
+
+## Validation and Tests
+- All tables created in this project are subject to tests that ensure data quality.
